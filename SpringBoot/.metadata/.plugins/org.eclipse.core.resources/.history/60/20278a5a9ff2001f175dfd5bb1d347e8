@@ -1,0 +1,42 @@
+package CalTask;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+
+public class DiscountCalculator {
+	private LocalDate currentDate;
+	private Double price;
+	public void setCurrentDate(LocalDate currentDate) {
+		this.currentDate = currentDate;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	
+	@SuppressWarnings("static-access")
+	public String calculateDiscount(String user) {
+		currentDate = currentDate.now();
+		DayOfWeek day = currentDate.getDayOfWeek();
+		String dis;
+		if(day.equals("SUNDAY")) {
+			price = price - (price * 0.2);
+			 dis = "20%";
+			
+		}
+		else if(day.equals("SATURDAY")) {
+			price = price - (price * 0.2);
+			 dis = "20%";
+			
+		}
+		else {
+			price = price - (price * 0.1);
+			 dis = "10%";
+		}
+		String res = "Welcome "+user+" After Discount of "+ dis +" Final Price is : "+price;
+		return res;
+		
+		//return res;
+		
+	}
+
+}
